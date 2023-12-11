@@ -6,7 +6,7 @@ async function fetchDadosAPI() {
 
     if (!resposta.ok) {
       throw new Error(
-        `Erro ao buscar dados: ${resposta.status} - ${resposta.statusText}`
+        `Erro ao buscar dados: ${resposta.status} - ${resposta.statusText}`,
       );
     }
 
