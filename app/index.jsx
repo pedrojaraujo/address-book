@@ -10,6 +10,7 @@ const Home = () => {
     setRefreshing(!refreshing);
     console.log("O botão foi pressionado");
   };
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
@@ -25,17 +26,21 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "steelblue",
+    backgroundColor: "white",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "center",
     marginTop: 100,
     width: "100%",
   },
-  item: {
-    borderBottomWidth: 2,
-    borderBottomColor: "#ccc",
-    padding: 10,
-    width: 350,
+  buttonContainer: {
+    flex: 0,
+    justifyContent: "center",
+    alignItems: "flex-end",
+/*     borderColor: "red",
+    borderWidth: 3, */
+    width: '100%',
+    paddingRight: 20
+   
   },
 });
 
