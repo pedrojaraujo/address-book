@@ -4,46 +4,44 @@ import { fetchDadosAPI } from "../utils/API";
 
 const Home = () => {
   const [dados, setDados] = useState(null);
-  const [contactosSelecionados, setContactosSelecionados] = useState([]);
-  const [contactosDisponiveis, setContactosDisponiveis] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const dadosRecebidos = await fetchDadosAPI();
+      setDados(dadosRecebidos);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const dadosRecebidos = await fetchDadosAPI();
-        setDados(dadosRecebidos);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
     fetchData();
   }, []);
 
-/*   const adicionarContacto = (contacto) => {
-    setContactosSelecionados([...contactosSelecionados, contacto]);
-    setContactosDisponiveis(
-      contactosDisponiveis.filter((c) => c.login.uuid !== contacto.login.uuid)
-    );
-  }; */
-
-  const removerContacto = (contacto) => {
-    setContactosSelecionados(
-      contactosSelecionados.filter((c) => c.login.uuid !== contacto.login.uuid)
-    );
-    setContactosDisponiveis([...contactosDisponiveis, contacto]);
+  const randomUser = () => {
+    fetchData();
   };
 
   const renderItem = ({ item }) => (
     <View style={styles.item}>
       <Text>Gender: {item.gender}</Text>
-      <Text>Name: {item.name.first} {item.name.last}</Text>
-      <Button title="Remover" onPress={() => removerContacto(item)} />
+      <Text>
+        Name: {item.name.first} {item.name.last}
+      </Text>
+      <Button
+        title="Detalhes"
+        onPress={() => {
+          navigation.navigate("UserDetails", {
+            userData: item,
+          });
+        }}
+      />
     </View>
   );
 
   return (
     <View style={styles.container}>
+      <Button title="Refresh" onPress={() => randomUser()} />
       {dados && dados.results ? (
         <FlatList
           data={dados.results}
@@ -65,7 +63,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 300,
     width: "100%",
-    padding: 0,
+    paddingTop: 30,
+    gap: 50,
   },
   item: {
     borderBottomWidth: 1,

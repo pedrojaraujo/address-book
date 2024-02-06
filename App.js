@@ -1,14 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
-
-import Home from "./app/index";
+import { NavigationContainer } from "@react-navigation/native";
+import Home from "./src/app/index";
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <NavigationContainer styles={styles.container}>
       <Home />
-      <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
   );
 }
 
@@ -18,6 +17,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    
   },
 });
