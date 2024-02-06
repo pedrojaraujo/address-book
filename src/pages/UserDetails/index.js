@@ -1,8 +1,9 @@
+import { NavigationContainer } from "@react-navigation/native";
 const UserDetails = ({ route }) => {
     const { userData } = route.params;
   
     return (
-      <View style={styles.container}>
+      <NavigationContainer style={styles.container}>
         <Text>Gender: {userData.gender}</Text>
         <Text>
           Name: {userData.name.first} {userData.name.last}
@@ -16,7 +17,7 @@ const UserDetails = ({ route }) => {
             navigation.goBack();
           }}
         />
-      </View>
+      </NavigationContainer>
     );
   };
   

@@ -2,7 +2,8 @@ import { Button, FlatList, StyleSheet, Text, View } from "react-native";
 import { useEffect, useState } from "react";
 import { fetchDadosAPI } from "../utils/API";
 
-const Home = () => {
+
+const Home = ({ navigation }) => {
   const [dados, setDados] = useState(null);
 
   const fetchData = async () => {
