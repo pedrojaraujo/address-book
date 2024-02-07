@@ -9,7 +9,7 @@ const UserDetails = ({ route, navigation }) => {
     <View style={styles.container}>
       <Image
         source={{ uri: `${userData.picture.large}` }}
-        style={{ width: 200, height: 200 }}
+        style={{ width: 200, height: 200, borderRadius: 200, marginHorizontal: "20%" }}
       />
       <Text>Gender: {userData.gender}</Text>
       <Text>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     gap: 8,
-    backgroundColor: "white",
+    backgroundColor: "#fff",
     alignItems: "flex-start",
     justifyContent: "flex-end",
     paddingLeft: "4%",

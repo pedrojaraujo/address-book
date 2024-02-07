@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View, Image } from "react-native";
 import { useEffect, useState } from "react";
 import { fetchDadosAPI } from "../utils/API";
 import { Icon } from "@rneui/themed";
@@ -51,6 +51,7 @@ const Users = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Image source={require('../assets/images/list.jpg')} style={{width: '100%', height: 300}} />
       <Button
         containerStyle={{
           width: 80,
@@ -79,11 +80,11 @@ const Users = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "#fff",
     justifyContent: "start",
-    marginTop: 250,
+    marginTop: 0,
     width: "100%",
-    paddingTop: 30,
+    
     gap: 10,
   },
   item: {
