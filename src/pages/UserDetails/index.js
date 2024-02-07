@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Image } from "react-native";
 import { Button } from "@rneui/themed";
 import { Icon } from "@rneui/themed";
 
@@ -7,6 +7,10 @@ const UserDetails = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Image
+        source={{ uri: `${userData.picture.large}` }}
+        style={{ width: 200, height: 200 }}
+      />
       <Text>Gender: {userData.gender}</Text>
       <Text>
         Name: {userData.name.first} {userData.name.last}
@@ -30,7 +34,6 @@ const UserDetails = ({ route, navigation }) => {
           containerStyle={{
             flex: 1,
             alignItems: "flex-start",
-            
           }}
         />
       </Button>

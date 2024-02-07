@@ -1,4 +1,4 @@
-const API_randomuser = "https://randomuser.me/api/?results=41";
+const API_randomuser = "https://randomuser.me/api/?results=50";
 
 async function fetchDadosAPI() {
   try {
